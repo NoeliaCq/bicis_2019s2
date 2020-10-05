@@ -18,7 +18,7 @@ class Depo {
 		if (bicisCompanieras.contains(bici)) {
 			bicisCompanieras.remove(bici)
 		}
-		if (bicisCompanieras.isEmpty()) {
+		if (not bicisCompanieras.isEmpty()) {
 			parDeCompanieras.addAll([bici, bicisCompanieras])
 		}
 		return bicisCompanieras
@@ -26,15 +26,10 @@ class Depo {
 	method hayCompanieras() { 
 		return parDeCompanieras.size() >=2
 	}
-	//falta method parejasDeCompañeras
-	//no hay metodo que devuelva el indice de un elemento????
-	/*method seHizoLaLuz() {
-		const primeraLuz = coleccionDeBicis.first({b=>b.tieneLuz()}). 
-		
-	}
+	//faltan method "parejasDeCompañeras()" y "seHizoLaLuz()"
 	
-}*/
+}
 
-const depo1 = new Depo(coleccionDeBicis = [bici1, bici2, bici3, bici4])
-
-const depo2 = new Depo(coleccionDeBicis = [bici1, bici2])
+//depositos de prueba
+/*const depo1 = new Depo(coleccionDeBicis = [bici1, bici2, bici3])
+const depo2 = new Depo(coleccionDeBicis = [bici1, bici2, bici4])*/

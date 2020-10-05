@@ -14,11 +14,9 @@ class Bici {
 	method cantAccesoriosLivianos() { return accesorios.count({acc=> acc.peso() < 1}) }
 }
 
-//bicis
-const bici1 = new Bici(rodado=28, largo=150, marca="Olmo", accesorios=[farolito])
+//bicis de prueba
 
+/*const bici1 = new Bici(rodado=28, largo=150, marca="Olmo", accesorios=[farolito])
 const bici2 = new Bici(rodado=26, largo=110, marca="Legnano", accesorios=[farolito, canasto1, morral1])
-
 const bici3 = new Bici(rodado=20, largo=90, marca="Legnano", accesorios=[morral2])
-
-const bici4 = new Bici(rodado=20, largo=100, marca="Legnano", accesorios=[morral2, farolito])
+const bici4 = new Bici(rodado=20, largo=100, marca="Legnano", accesorios=[morral2, farolito])*/

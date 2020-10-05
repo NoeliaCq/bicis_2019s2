@@ -23,16 +23,18 @@ class Morral {
 	method esLuminoso() { return tieneOjoDeGato }
 }
 
-//PUNTO 5: Una pregunta
+////////////////////////PUNTO 5: Una pregunta///////////////////////////////////////
 /*
- * Para agregar un nuevo accesorio simplemente creamos una nueva clase u objeto (segun el caso) 
+ * Para agregar un nuevo accesorio simplemente creamos una nueva clase 
  * con el nombre del accesorio nuevo.
- * Esta debe contener los mismos métodos de los accesorios existentes: peso(), carga() y esLuminoso()
+ * Esta debe contener los mismos métodos de las clases existentes para que sean
+ * polimorficas entre ellas: peso(), carga() y esLuminoso()
  */
-//accesorios
-const farolito = new Farolito()
+ 
+ 
+//accesorios de prueba
+
+/*const farolito = new Farolito()
 const canasto1 = new Canasto(volumen=8)
-
 const morral1 = new Morral(largo=21, tieneOjoDeGato=true)
-
-const morral2 = new Morral(largo=6, tieneOjoDeGato=false)
+const morral2 = new Morral(largo=6, tieneOjoDeGato=false)*/

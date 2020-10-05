@@ -1,0 +1,55 @@
+import bicis.*
+import accesorios.*
+import deposito.*
+
+test "2 depositos" {
+	//ESCENARIO
+	const farolito = new Farolito()
+	const canasto1 = new Canasto(volumen=8)
+	const morral1 = new Morral(largo=21, tieneOjoDeGato=true)
+	const morral2 = new Morral(largo=6, tieneOjoDeGato=false)
+	
+	const bici1 = new Bici(rodado=28, largo=150, marca="Olmo", accesorios=[farolito])
+	const bici2 = new Bici(rodado=26, largo=110, marca="Legnano", accesorios=[farolito, canasto1, morral1])
+	const bici3 = new Bici(rodado=20, largo=90, marca="Legnano", accesorios=[morral2])
+	const bici4 = new Bici(rodado=20, largo=100, marca="Legnano", accesorios=[morral2, farolito])
+	
+	const depo1 = new Depo(coleccionDeBicis = [bici1, bici2, bici3])
+	const depo2 = new Depo(coleccionDeBicis = [bici1, bici2, bici4])
+	//DEPOSITO 1
+	//METODOS INICIALES
+	assert.equals([bici1, bici2], depo1.bicisRapidas())
+	assert.equals(#{"Olmo", "Legnano"}, depo1.marcas())
+	assert.notThat(depo1.esNocturno())
+	assert.that(depo1.tieneBiciParaCargar(10))
+	assert.notThat(depo1.tieneBiciParaCargar(50))
+	//MAS SOBRE EL DEPO
+	assert.equals("Olmo", depo1.marcaDeBiciMasRapida())
+	assert.equals(0, depo1.totalCargaDeBicisLargas())
+	assert.equals(0, depo1.cantBicisSinAccesorios())
+	//BICIS COMPAÑERAS
+	assert.equals([], depo1.biciCompanieraDe(bici1))
+	assert.equals([], depo1.biciCompanieraDe(bici2))
+	assert.equals([], depo1.biciCompanieraDe(bici3))
+	//DESAFIO : 1 DE 3
+	assert.notThat(depo1.hayCompanieras())
+	
+	//DEPOSITO 2
+	//METODOS INICIALES
+	assert.equals([bici1, bici2], depo2.bicisRapidas())
+	assert.equals(#{"Olmo", "Legnano"}, depo2.marcas())
+	assert.that(depo2.esNocturno())
+	assert.that(depo2.tieneBiciParaCargar(10))
+	assert.notThat(depo2.tieneBiciParaCargar(25))
+	//MAS SOBRE EL DEPO
+	assert.equals("Olmo", depo2.marcaDeBiciMasRapida())
+	assert.equals(0, depo2.totalCargaDeBicisLargas())
+	assert.equals(0, depo2.cantBicisSinAccesorios())
+	//BICIS COMPAÑERAS
+	assert.equals([], depo2.biciCompanieraDe(bici1))
+	assert.equals([bici4], depo2.biciCompanieraDe(bici2))
+	assert.equals([bici2], depo2.biciCompanieraDe(bici4))
+	//DESAFIO : 1 DE 3
+	assert.that(depo2.hayCompanieras())
+	
+}
